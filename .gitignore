@@ -209,4 +209,4 @@ models/
 .ipynb_checkpoints/
 __pycache__/
 .env
-.Trash-0
+notebooks/.Trash-0
