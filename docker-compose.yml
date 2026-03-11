@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  deeppavlov_lab:
+    build: .
+    volumes:
+      # Пробрасываем папку с кодом (изменения сразу видны в Git на хосте)
+      - ./notebooks:/app/notebooks
+      # Пробрасываем папку для моделей (чтобы не засирать контейнер и корень)
+      - ./models:/root/.deeppavlov 
+    ports:
+      - "8888:8888"
+    environment:
+      - DP_MODELS_PATH=/root/.deeppavlov
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu] # Удали этот блок, если нет видеокарты NVIDIA

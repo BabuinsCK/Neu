@@ -1,0 +1,4 @@
+deeppavlov
+jupyterlab
+pandas
+matplotlib
