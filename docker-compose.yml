@@ -3,9 +3,9 @@ services:
   deeppavlov_lab:
     build: .
     volumes:
-      # Пробрасываем папку с кодом (изменения сразу видны в Git на хосте)
+      # Пробрасываем папку с кодом
       - ./notebooks:/app/notebooks
-      # Пробрасываем папку для моделей (чтобы не засирать контейнер и корень)
+      # Пробрасываем папку для моделей
       - ./models:/root/.deeppavlov 
     ports:
       - "8888:8888"
@@ -17,4 +17,4 @@ services:
           devices:
             - driver: nvidia
               count: all
-              capabilities: [gpu] # Удали этот блок, если нет видеокарты NVIDIA
+              capabilities: [gpu]
